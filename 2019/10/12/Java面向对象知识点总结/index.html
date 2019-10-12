@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="title: Java面向对象知识点总结date: 2019-10-12 13:26:10第二章 类和对象的创建1.面向对象的概念面向对象的思想是把一个项目，一件事情分成更小的项目，或者说分成一个个更小的部分，每一部分负责什么方面的功能，最后再由这些部分组合而成为一个整体。 2.类的创建 12语法：public class 类名{}    File—&amp;gt;new—&amp;gt;class—&amp;gt;类">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-12T05:26:54.793Z">
+<meta property="og:updated_time" content="2019-10-12T05:29:12.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="title: Java面向对象知识点总结date: 2019-10-12 13:26:10第二章 类和对象的创建1.面向对象的概念面向对象的思想是把一个项目，一件事情分成更小的项目，或者说分成一个个更小的部分，每一部分负责什么方面的功能，最后再由这些部分组合而成为一个整体。 2.类的创建 12语法：public class 类名{}    File—&amp;gt;new—&amp;gt;class—&amp;gt;类">
@@ -303,21 +303,17 @@
 <p>title: Java面向对象知识点总结<br>date: 2019-10-12 13:26:10<br>第二章 类和对象的创建<br>1.面向对象的概念<br>面向对象的思想是把一个项目，一件事情分成更小的项目，或者说分成一个个更小的部分，<br>每一部分负责什么方面的功能，最后再由这些部分组合而成为一个整体。</p>
 <p>2.类的创建</p>
 <p>1<br>2<br>语法：public class 类名{}<br>    File—&gt;new—&gt;class—&gt;类名<br>3.创建对象<br>类名 对象名 =new 类名()；<br>对象名.方法名()；对象名.属性<br>4.构造方法：方法名和类名相同，没有返回值</p>
-<p>1<br>2<br>3<br>public class 类名{<br>    public 类名（）{}//主要作用是初始化操作<br>}<br>5.构造方法的重载：在同一个类中，方法名相同，参数个数，顺序，类型不相同的构造方法</p>
-<p>1<br>2<br>3<br>4<br>public class 类名{<br>        public 类名（）{}<br>        public 类名（String name，int age）{}<br>    }<br>6.构造方法的执行：<br>new 类名（）；—&gt;执行构造方法<br>super（）；—&gt;执行了父类的构造方法<br>7.static静态修饰符<br>静态修饰符可以修饰属性，方法，代码块<br>类名.属性 类名.方法名<br>8.Java内存（栈和堆，static，方法区，gc（垃圾回收机制））</p>
+<p>public class 类名{<br>    public 类名（）{}//主要作用是初始化操作<br>}<br>5.构造方法的重载：在同一个类中，方法名相同，参数个数，顺序，类型不相同的构造方法</p>
+<p>public class 类名{<br>        public 类名（）{}<br>        public 类名（String name，int age）{}<br>    }<br>6.构造方法的执行：<br>new 类名（）；—&gt;执行构造方法<br>super（）；—&gt;执行了父类的构造方法<br>7.static静态修饰符<br>静态修饰符可以修饰属性，方法，代码块<br>类名.属性 类名.方法名<br>8.Java内存（栈和堆，static，方法区，gc（垃圾回收机制））</p>
 <p>第三章 面向对象三大特征—封装<br>1.封装的概念<br>封装是指将对象的状态信息隐藏在对象内部，不允许外部程序直接访问对象内部信息<br>而是通过该类所提供的方法来实现对内部信息的操作访问<br>2.封装的步骤<br>（1）把属性私有化（private）<br>（2）对这些属性设置get和set方法<br>（3）调用处理这些方法<br>3.封装的作用：避免一些用户不合理的操作<br>4.修饰符<br>（1）public—&gt;公共的：在一个项目中都可以访问，权限最高<br>（2）private—&gt;私有的：只能在本类中进行访问，权限最低<br>（3）protected—&gt;安全的，受保护的：同一个包中才能进行访问，继承中子类可以访问父类<br>（4）default—&gt;默认的：同一个包中能访问</p>
 <p>第四章 面向对象的三大特征—继承<br>1.继承的概念<br>子类继承父类的属性，方法。<br>2.继承的关键字：extends<br>3.继承的语法：<br>public class 类名 extends 父类{}<br>4.使用</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>//父类public void shout(){<br>        system.out.println(“动物发出叫声”);<br>}<br>//子类重写public viod shout(){                system.out.println(“某一种动物发出叫声”);<br>}<br>//测试public static void main(String[]args){<br>父类 引用变量名=new 父类();//创建父类的实例对象<br>引用变量名.shout();//调用父类重写shout()方法}<br>5.父类构造方法调用：super（）；<br>调用父类的构造方法必须在子类中调用<br>必须在子类构造方法的第一行<br>6.重写@Override<br>必须继承<br>方法名一致，参数个数，顺序，类型全部一致</p>
+<p>//父类public void shout(){<br>        system.out.println(“动物发出叫声”);<br>}<br>//子类重写public viod shout(){                system.out.println(“某一种动物发出叫声”);<br>}<br>//测试public static void main(String[]args){<br>父类 引用变量名=new 父类();//创建父类的实例对象<br>引用变量名.shout();//调用父类重写shout()方法}<br>5.父类构造方法调用：super（）；<br>调用父类的构造方法必须在子类中调用<br>必须在子类构造方法的第一行<br>6.重写@Override<br>必须继承<br>方法名一致，参数个数，顺序，类型全部一致</p>
 <p>第五章 面向对象（多态）<br>1.多态的概念<br>指不同类的对象对同一消息做出响应<br>2.多态的必要条件<br>继承<br>重写<br>父类引用指向子类对象（向上转型）<br>3.多态的使用</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>public class Father{<br>             public void cooking(){<br>                 System.out.println(“米饭”);<br>             }<br>         }<br>      public class Son extends Father{<br>             public void cooking(){<br>                 System.out.println(“熬粥”);<br>             }<br>         }<br>         public class Test {<br>            public static void main(String[] args) {<br>                Father son=new Son();<br>                son.cooking();<br>            }<br>        }<br>4.向下转型<br>Son son=(Son)father;</p>
+<p>public class Father{<br>             public void cooking(){<br>                 System.out.println(“米饭”);<br>             }<br>         }<br>      public class Son extends Father{<br>             public void cooking(){<br>                 System.out.println(“熬粥”);<br>             }<br>         }<br>         public class Test {<br>            public static void main(String[] args) {<br>                Father son=new Son();<br>                son.cooking();<br>            }<br>        }<br>4.向下转型<br>Son son=(Son)father;</p>
 <p>第六章 抽象<br>1.抽象的概念<br>抽象就是用程序的逻辑方法和数据结构来模拟现实的世界<br>2.抽象的关键字<br>abstract<br>可以修饰类，可以修饰方法<br>3.抽象的用法</p>
-<p>1<br>2<br>3<br>4<br>5<br>//抽象类<br>         public abstract class 类名{<br>             //抽象方法没有方法体<br>             public abstract void 方法名();<br>         }<br>//当父类是抽象类的时候，子类必须重写父类里面的抽象方法<br>4.final修饰符：最终的<br>修饰变量，修饰方法，修饰类<br>1.当修饰变量时，变量转换成常量，常量的值不能改变<br>final int a=18;//a=18;不能改变,必须给一个初始值<br>2.当修饰方法时，该方法不能被重写<br>3.当修饰类时，该类不能被继承</p>
+<p>//抽象类<br>         public abstract class 类名{<br>             //抽象方法没有方法体<br>             public abstract void 方法名();<br>         }<br>//当父类是抽象类的时候，子类必须重写父类里面的抽象方法<br>4.final修饰符：最终的<br>修饰变量，修饰方法，修饰类<br>1.当修饰变量时，变量转换成常量，常量的值不能改变<br>final int a=18;//a=18;不能改变,必须给一个初始值<br>2.当修饰方法时，该方法不能被重写<br>3.当修饰类时，该类不能被继承</p>
 <p>第七章 接口<br>1.接口的概念<br>接口是一套规范，满足这个规范的设备，就可以将他们组装到一起，也可以实现具体复杂事物但有规律的功能<br>2.接口的关键字<br>interface<br>3.接口的语法</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>实现接口的关键字  implements<br>      public interface 接口名{<br>          //接口是纯抽象类<br>          //接口里面的方法都是抽象方法<br>          void setData();<br>      }<br>      public class Play implements 接口名{<br>          void setData(){<br>          }<br>     }<br>      public class Test {<br>          public static void main(String[] args) {<br>              Play play=new Play();<br>              play.setData();<br>          }<br>      }<br>注意接口可以进行多继承<br>    public interface 接口名 extends 接口名，接口名{}<br>    一般用法<br>    public class 类名 extends 父类 implements 接口，接口{}<br>第八章 集合框架<br>1.ArrayList<br>1.用法</p>
-<p>1<br>2<br>3<br>ArrayList list=new ArrayList();<br>          list.add();//添加数据<br>          list.get();//获取数据<br>2.Map<br>用法</p>
-<p>1<br>2<br>3<br>Map map=new HasMap();<br>          map.put(key,value);//key不能重复<br>          map.get(key);//获取key对象的value<br>3.泛型</p>
-<p>1<br>2<br>3<br>ArrayList<string> list=new ArrayList&gt;<string>();<br>         Map&lt;String,String&gt; map=new HasMap&lt;String,String&gt;();<br>         ArrayList&lt;Map&lt;String,String&gt;&gt; list=new ArrayList&gt;&lt;Map&lt;String,String&gt;();<br>第九章 高级功能-文件操作<br>1.文件概述<br>文件是有具体内容或用途的，而文件夹是用来放置这些文件的。文件在java中对应的类是File。File类是IO包中唯一代表磁盘文件本身的对象。通过File来创建，删除，重命名文件。<br>2.流<br>在Java中所读取到的信息，是通过一根管道，输送到数据文件中的。这跟管道中的信息，称之为“流”(Stream)。可以分为字节流和输出流。<br>3.使用FileWrite类写文件示例：</string></string></p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>public static void main(String[] args) {</p>
+<p>实现接口的关键字  implements<br>      public interface 接口名{<br>          //接口是纯抽象类<br>          //接口里面的方法都是抽象方法<br>          void setData();<br>      }<br>      public class Play implements 接口名{<br>          void setData(){<br>          }<br>     }<br>      public class Test {<br>          public static void main(String[] args) {<br>              Play play=new Play();<br>              play.setData();<br>          }<br>      }<br>注意接口可以进行多继承<br>    public interface 接口名 extends 接口名，接口名{}<br>    一般用法<br>    public class 类名 extends 父类 implements 接口，接口{}<br>第八章 集合框架<br>1.ArrayList<br>1.用法<br>ArrayList list=new ArrayList();<br>          list.add();//添加数据<br>          list.get();//获取数据<br>2.Map<br>用法<br>Map map=new HasMap();<br>          map.put(key,value);//key不能重复<br>          map.get(key);//获取key对象的value<br>3.泛型<br>ArrayList<string> list=new ArrayList&gt;<string>();<br>         Map&lt;String,String&gt; map=new HasMap&lt;String,String&gt;();<br>         ArrayList&lt;Map&lt;String,String&gt;&gt; list=new ArrayList&gt;&lt;Map&lt;String,String&gt;();<br>第九章 高级功能-文件操作<br>1.文件概述<br>文件是有具体内容或用途的，而文件夹是用来放置这些文件的。文件在java中对应的类是File。File类是IO包中唯一代表磁盘文件本身的对象。通过File来创建，删除，重命名文件。<br>2.流<br>在Java中所读取到的信息，是通过一根管道，输送到数据文件中的。这跟管道中的信息，称之为“流”(Stream)。可以分为字节流和输出流。<br>3.使用FileWrite类写文件示例：<br>public static void main(String[] args) {</string></string></p>
 <pre><code>    Writer fw=null;
     try {
         fw=new FileWriter(&quot;d:/sample.txt&quot;);
@@ -335,8 +331,7 @@
             e.printStackTrace();
         }
     }
-}</code></pre><p>第十章 多线程<br>1.线程可以理解成是在程序中独立运行的子任务。<br>2.线程的创建</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>    public class Text{<br>        public static void main(String args[]){<br>            DownloanA downloadA = new DownloanA();<br>            Thread myThread =new Thread(downloadA);<br>            myThread.start();<br>        }<br>}</p>
+}</code></pre><p>第十章 多线程<br>1.线程可以理解成是在程序中独立运行的子任务。<br>2.线程的创建<br>    public class Text{<br>        public static void main(String args[]){<br>            DownloanA downloadA = new DownloanA();<br>            Thread myThread =new Thread(downloadA);<br>            myThread.start();<br>        }<br>}</p>
 <pre><code>public class DownloanA implements Runnable{
     @Override
     public void run(){
@@ -345,8 +340,7 @@
     public void download(){
         System.out.println(&quot;进入mp3下载线程：&quot;+Thread.currentThread().getName());
     }
-}</code></pre><p>3.多线程的使用</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>//线程1<br>public class MyThread /<em>implements Runnable</em>/ extends Thread{</p>
+}</code></pre><p>3.多线程的使用<br>//线程1<br>public class MyThread /<em>implements Runnable</em>/ extends Thread{</p>
 <pre><code>@Override
 public void run() {
     // TODO Auto-generated method stub
