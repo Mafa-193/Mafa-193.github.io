@@ -229,6 +229,150 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/30/数据库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/30/数据库/" itemprop="url">数据库</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-30T21:04:32+08:00">
+                2019-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>表约束</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.非空约束 NOT NULL</span><br><span class="line">2.默认值约束 DEFAULT &apos;男&apos;</span><br><span class="line">3.唯一约束 UNIQUE4.主键约束 PRIMARY KEY</span><br></pre></td></tr></table></figure>
+
+<p>修改列名<br>修改列类型<br>修改列类型<br>查询表中全部信息<br>查询表中指定列的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">语句的执行顺序：from—&gt;select</span><br><span class="line">语句的执行顺序：from—&gt;select</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Alter table 表名 change 列名 新列名 类型;</span><br><span class="line">Alter table 表名 change 列名 列名 新类型;</span><br><span class="line">Alter table 表名 modify 列名 新类型;</span><br></pre></td></tr></table></figure>
+
+<p>条件查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 列… from 表名 where 条件;</span><br></pre></td></tr></table></figure>
+
+<p>交叉连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表1,表2</span><br></pre></td></tr></table></figure>
+
+<p>内连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表1,表2 where 表1.字段=表2.字段;</span><br></pre></td></tr></table></figure>
+
+<p>外连接:以左边表为主，返回左边表中所有数据，若右表中无数据，则显示为NULL，请参考实际查询<br>结果来理解。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表1 left [outer] join 表2 on 表1.字段=表2.字段;</span><br></pre></td></tr></table></figure>
+
+<p>集合查询( 判断列的值是否在指定的集合中 )<br>列中的数据是in后的值里面的where 列 not in(值1,值2);<br>不是in中指定值的数据<br>NULL值查询( 注意：列中值为null不能使用=去查询 )<br>//查询列中值为null的数据<br>模糊查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">表示0到多个字符，示例：</span><br><span class="line">表示以0结尾where 列 like &apos;0%&apos;;</span><br><span class="line">表示以0开头where 列 like &apos;%0%&apos;;</span><br><span class="line">表示数据中包含0表示一个字符，可多次使用，示例：</span><br><span class="line">select 列… from 表名 where 条件;</span><br><span class="line">where 列 比较运算符 值;</span><br><span class="line">where 条件1 逻辑运算符 条件2;</span><br><span class="line">where not 条件;</span><br><span class="line">where 列 between 条件1 and 条件2;</span><br><span class="line">where 列 in(值1,值2);</span><br><span class="line">where 列 is null;</span><br><span class="line">where 列 like &apos;%0&apos;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">表示一个字符，可多次使用，示例：</span><br><span class="line">select 列… from 表名 where 条件;</span><br><span class="line">where 列 比较运算符 值;</span><br><span class="line">where 条件1 逻辑运算符 条件2;</span><br><span class="line">where not 条件;</span><br><span class="line">where 列 between 条件1 and 条件2;</span><br><span class="line">where 列 in(值1,值2);</span><br><span class="line">where 列 is null;</span><br><span class="line">where 列 like &apos;%0&apos;;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/12/Java面向对象知识点总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -712,7 +856,7 @@ public void run() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
