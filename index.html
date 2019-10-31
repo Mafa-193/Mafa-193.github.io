@@ -229,6 +229,155 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/Tomcat的安装和配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/31/Tomcat的安装和配置/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-31T21:17:15+08:00">
+                2019-10-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="安装Tomcat步骤"><a href="#安装Tomcat步骤" class="headerlink" title="安装Tomcat步骤"></a>安装Tomcat步骤</h4><p>搜索下载Tomcat</p>
+<p>下载完成后，将该<strong>压缩包解压</strong>即可.</p>
+<p>环境变量配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">鼠标右键点击【这台电脑】--&gt;选择【属性】-&gt;【高级系统设置】--&gt;【系统变量】。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">然后，点击“系统变量”框下的【新建】按钮。</span><br><span class="line"></span><br><span class="line">（1）新建CATALINA_BASE变量</span><br><span class="line"></span><br><span class="line">变量名：CATALINA_BASE</span><br><span class="line"></span><br><span class="line">变量值：C:\Users\Administrator\Desktop\apache-tomcat-8.5.43【文件存放路径（这个是我自己的）】</span><br><span class="line"></span><br><span class="line">（2）新建CATALINA_HOME变量</span><br><span class="line"></span><br><span class="line">变量名：CATALINA_HOME</span><br><span class="line"></span><br><span class="line">变量值：C:\my\apache-tomcat-8.5.42-windows-x64\apache-tomcat-8.5.42（变量值同上）</span><br><span class="line"></span><br><span class="line">（3）找到Path变量，点击编辑</span><br><span class="line"></span><br><span class="line">变量名：Path</span><br><span class="line"></span><br><span class="line">变量值： %CATALINA_HOME%\bin</span><br><span class="line"></span><br><span class="line">（不要删除原有path变量值，直接在最后一行添加上这一句即可用“;”隔开 中间不要留空格）</span><br><span class="line"></span><br><span class="line">Tomcat配置好后。打开cmd命令提示符，输入startup后回车，就可以看到Tomcat成功启动了。</span><br></pre></td></tr></table></figure>
+
+<h4 id="Eclipse环境下如何配置Tomcat"><a href="#Eclipse环境下如何配置Tomcat" class="headerlink" title="Eclipse环境下如何配置Tomcat"></a>Eclipse环境下如何配置Tomcat</h4><p>工具：Eclipse</p>
+<p>(1)打开Eclipse，单击“Window”菜单，选择下方的“Preferences”。</p>
+<p><img src="https://i.loli.net/2019/10/31/UzivkhKTo5yR692.png" alt="blob"></p>
+<p>(2)单击“Server”选项，选择下方的“Runtime Environments”</p>
+<p><img src="https://i.loli.net/2019/10/31/V9vKroukUPi6Tdz.png" alt="blob"></p>
+<p>（3）点击“Add”添加Tomcat。</p>
+<p><img src="https://i.loli.net/2019/10/31/AmPWVlgKcTt79JG.png" alt="blob"></p>
+<p>（4）点击“Next”，选中自己安装的Tomcat路径。</p>
+<p><img src="https://i.loli.net/2019/10/31/rxQwRVkWt3F5sbS.png" alt="blob"></p>
+<p>（5）点击“Finish”完成。</p>
+<p><img src="https://i.loli.net/2019/10/31/l8u17qEgr4KHv9R.png" alt="blob"></p>
+<h5 id="1建立一个Web项目"><a href="#1建立一个Web项目" class="headerlink" title="1建立一个Web项目"></a>1建立一个Web项目</h5><p><img src="https://i.loli.net/2019/10/31/1nD39BcWMr8LyHN.png" alt="blob"></p>
+<p>2.创建一个<code>Dynamic Web Project</code></p>
+<p><img src="https://i.loli.net/2019/10/31/k8PyXuSs9nliEA3.png" alt="blob"></p>
+<p>点击Finsh.</p>
+<p>3让Tomcat服务器显示在控制台上，将Web应用部署到Tomcat中</p>
+<p><img src="https://i.loli.net/2019/10/31/lvQnGENgfRk7JzI.png" alt="blob"></p>
+<p>4点击链接<code>No servers are available. Click ths link to create a new server.</code> ，在弹出的对话框中选择Tomcat版本</p>
+<p><img src="https://i.loli.net/2019/10/31/DSVYidQ3qOoa1Wt.png" alt="blob"></p>
+<p>5点击“Next”，添加我们的项目</p>
+<p><img src="https://i.loli.net/2019/10/31/ibnBlhRpQtzgFoZ.png" alt="blob"></p>
+<p>6点击“Finish”完成,返回下方的“Servers”面板，右键单击该面板中的“Tomcat v8.0 Server at localhost”节点，在弹出的快捷菜单中单击“Start”，即可启动指定的Web服务器。如果此时直接启动访问<code>http://localhost:8080/day05</code>+文件名和后缀。效果如下。</p>
+<p><img src="https://i.loli.net/2019/10/31/knQcd6M3BfzZ4EL.png" alt="blob"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/30/数据库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -856,7 +1005,7 @@ public void run() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
