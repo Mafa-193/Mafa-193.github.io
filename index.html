@@ -229,6 +229,239 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/04/认识JSP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/04/认识JSP/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-04T18:34:46+08:00">
+                2019-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="编译的过程包括三个步骤："><a href="#编译的过程包括三个步骤：" class="headerlink" title="编译的过程包括三个步骤："></a>编译的过程包括三个步骤：</h4><ol>
+<li>解析JSP文件。</li>
+<li>将JSP文件转为servlet。</li>
+<li>编译servlet。</li>
+</ol>
+<p>脚本程序<br> 脚本程序可以包含任意量的Java语句、变量、方法或表达式，只要它们在脚本语言中是有效的。<br> 脚本程序的语法格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% 代码片段 %&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JSP声明"><a href="#JSP声明" class="headerlink" title="JSP声明"></a>JSP声明</h3><p>一个声明语句可以声明一个或多个变量、方法，供后面的Java代码使用。在JSP文件中，您必须先声明这些变量和方法然后才能使用它们。</p>
+<p>JSP声明的语法格式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%! <span class="selector-tag">declaration</span>; <span class="selector-attr">[ declaration; ]</span>+ ... %&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JSP表达式"><a href="#JSP表达式" class="headerlink" title="JSP表达式"></a>JSP表达式</h3><p>一个JSP表达式中包含的脚本语言表达式，先被转化成String，然后插入到表达式出现的地方。</p>
+<p>由于表达式的值会被转化成String，所以您可以在一个文本行中使用表达式而不用去管它是否是HTML标签。</p>
+<p>表达式元素中可以包含任何符合Java语言规范的表达式，但是不能使用分号来结束表达式。</p>
+<p>JSP表达式的语法格式：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%=</span> 表达式 %&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JSP指令"><a href="#JSP指令" class="headerlink" title="JSP指令"></a>JSP指令</h2><p>JSP指令用来设置与整个JSP页面相关的属性。<br> JSP指令语法格式：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">directive</span> <span class="attr">attribute</span>=<span class="string">"value"</span> %&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>对象</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>request</td>
+<td>HttpServletRequest类的实例</td>
+</tr>
+<tr>
+<td>response</td>
+<td>HttpServletResponse类的实例</td>
+</tr>
+<tr>
+<td>out</td>
+<td>PrintWriter类的实例，用于把结果输出至网页上</td>
+</tr>
+<tr>
+<td>session</td>
+<td>HttpSession类的实例</td>
+</tr>
+<tr>
+<td>application</td>
+<td>ServletContext类的实例，与应用上下文有关</td>
+</tr>
+<tr>
+<td>config</td>
+<td>ServletConfig类的实例</td>
+</tr>
+<tr>
+<td>pageContext</td>
+<td>PageContext类的实例，提供对JSP页面所有对象以及命名空间的访问</td>
+</tr>
+<tr>
+<td>page</td>
+<td>类似于Java类中的this关键字</td>
+</tr>
+<tr>
+<td>Exception</td>
+<td>Exception类的对象，代表发生错误的JSP页面中对应的异常对象</td>
+</tr>
+</tbody></table>
+<p>JSP隐含对象<br> JSP支持九个自动定义的变量，江湖人称隐含对象。这九个隐含对象的简介见下表：</p>
+<table>
+<thead>
+<tr>
+<th>对象</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>request</td>
+<td>HttpServletRequest类的实例</td>
+</tr>
+<tr>
+<td>response</td>
+<td>HttpServletResponse类的实例</td>
+</tr>
+<tr>
+<td>out</td>
+<td>PrintWriter类的实例，用于把结果输出至网页上</td>
+</tr>
+<tr>
+<td>session</td>
+<td>HttpSession类的实例</td>
+</tr>
+<tr>
+<td>application</td>
+<td>ServletContext类的实例，与应用上下文有关</td>
+</tr>
+<tr>
+<td>config</td>
+<td>ServletConfig类的实例</td>
+</tr>
+<tr>
+<td>pageContext</td>
+<td>PageContext类的实例，提供对JSP页面所有对象以及命名空间的访问</td>
+</tr>
+<tr>
+<td>page</td>
+<td>类似于Java类中的this关键字</td>
+</tr>
+<tr>
+<td>Exception</td>
+<td>Exception类的对象，代表发生错误的JSP页面中对应的异常对象</td>
+</tr>
+</tbody></table>
+<p>===request对象===<br> request对象是javax.servlet.http.HttpServletRequest 类的实例。每当客户端请求一个JSP页面时，JSP引擎就会制造一个新的request对象来代表这个请求。<br> request对象提供了一系列方法来获取HTTP头信息，cookies，HTTP方法等等。</p>
+<p>==session对象==<br> session对象是 javax.servlet.http.HttpSession 类的实例。和Java Servlets中的session对象有一样的行为。<br> session对象用来跟踪在各个客户端请求间的会话。</p>
+<p>==response对象==<br> response对象是javax.servlet.http.HttpServletResponse类的实例。当服务器创建request对象时会同时创建用于响应这个客户端的response对象。<br> response对象也定义了处理HTTP头模块的接口。通过这个对象，开发者们可以添加新的cookies，时间戳，HTTP状态码等等。</p>
+<p>===response对象==<br> response对象是javax.servlet.http.HttpServletResponse类的实例。当服务器创建request对象时会同时创建用于响应这个客户端的response对象。<br> response对象也定义了处理HTTP头模块的接口。通过这个对象，开发者们可以添加新的cookies，时间戳，HTTP状态码等等。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/04/怎样用Eclipse连接数据库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1165,7 +1398,7 @@ public void run() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
