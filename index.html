@@ -229,6 +229,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/04/JSP中用Cookies实现登陆信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/04/JSP中用Cookies实现登陆信息/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-04T18:38:30+08:00">
+                2019-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>首先，此案例需要准备三个JSP页面：</p>
+<pre><code>1. login.jsp：负责登陆页面的显示
+
+2. login.jsp：负责判断用户是否登陆成功、用户是否勾选记住账号密码
+
+3. user.jsp ：显示用户信息页面</code></pre><p>login.jsp</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;用户登陆界面&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;h1&gt;用户登陆&lt;/h1&gt;</span><br><span class="line">	&lt;hr&gt;</span><br><span class="line">	&lt;form name=<span class="string">"loginForm"</span> action=<span class="string">"login.jsp"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">		&lt;table&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;UserName:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type="text"  name="username" value=""/&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;Password:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type="password" name="password" value=""/&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td colspan="2"&gt;&lt;input type="checkbox" name="isUseCookies" checked="checked"/&gt;十天内记住我的登陆状态&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td colspan="2" align="center"&gt;&lt;input type="submit" value="登陆"/&gt;&lt;input type="reset" value="取消" /&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">		&lt;/table&gt;</span><br><span class="line">	&lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<p><img src="https://i.loli.net/2019/11/04/komdMDh6jft9vyr.png" alt="blob"></p>
+<p>login.jsp </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;登陆成功&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;h1&gt;登陆成功&lt;/h1&gt;</span><br><span class="line">	&lt;hr&gt;</span><br><span class="line">	&lt;a href="user.jsp"&gt;查看用户信息&lt;/a&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<p><img src="https://i.loli.net/2019/11/04/6GFQ9P2VMcZNzdY.png" alt="blob"></p>
+<p>user.jsp</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC <span class="string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span><br><span class="line">&lt;title&gt;登陆成功&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;h1&gt;用户资料&lt;/h1&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">          用户名：&lt;br&gt;</span><br><span class="line">          密码：&lt;br&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<p><img src="https://i.loli.net/2019/11/04/uCok61tenaFpQq7.png" alt="blob"></p>
+<p>接下来添加业务逻辑代码。</p>
+<p>login.jsp中的业务逻辑代码（判断是否需要保存用户信息并进行相应处理）</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">		request.setCharacterEncoding(<span class="string">"utf-8"</span>); <span class="comment">//防止中文乱码</span></span><br><span class="line">		<span class="comment">//首先判断用户是否选择保存登陆状态</span></span><br><span class="line">		String[] isUseCookies = request.getParameterValues(<span class="string">"isUseCookies"</span>); </span><br><span class="line">		<span class="comment">//选择保存:不为空且大于0</span></span><br><span class="line">		<span class="keyword">if</span>(isUseCookies != <span class="keyword">null</span> &amp;&amp; isUseCookies.length&gt;<span class="number">0</span>)&#123;</span><br><span class="line">			String username = URLEncoder.encode(request.getParameter(<span class="string">"username"</span>),<span class="string">"utf-8"</span>);  </span><br><span class="line">			<span class="comment">//使用URLEncoder解决 无法在Cookies对象中无法保存中文字符的问题</span></span><br><span class="line">			String password = URLEncoder.encode(request.getParameter(<span class="string">"password"</span>), <span class="string">"utf-8"</span>);</span><br><span class="line">			<span class="comment">//使用Cookies对象保存字符串</span></span><br><span class="line">			Cookie usernemeCookie = <span class="keyword">new</span> Cookie(<span class="string">"username"</span>,username);</span><br><span class="line">			Cookie passwordCookie = <span class="keyword">new</span> Cookie(<span class="string">"password"</span>,password);</span><br><span class="line">&lt;%</span><br><span class="line">    	String username = <span class="string">""</span>; <span class="comment">//用户名</span></span><br><span class="line">    	String password = <span class="string">""</span>; <span class="comment">//密码</span></span><br><span class="line">    	</span><br><span class="line">    	Cookie[] cookies = request.getCookies();</span><br><span class="line">    	<span class="comment">//保存有cookie对象</span></span><br><span class="line">    	<span class="keyword">if</span>(cookies != <span class="keyword">null</span> &amp;&amp; cookies.length &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    		<span class="keyword">for</span>(Cookie c: cookies)&#123;</span><br><span class="line">    			<span class="keyword">if</span>(c.getName().equals(<span class="string">"username"</span>))&#123;</span><br><span class="line">    				username = c.getValue();</span><br><span class="line">    			&#125;</span><br><span class="line">    			<span class="keyword">if</span>(c.getName().equals(<span class="string">"passwird"</span>))&#123;</span><br><span class="line">    				password = c.getValue();</span><br><span class="line">    			&#125;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    %&gt;</span><br><span class="line">          用户名：&lt;%=username %&gt;&lt;br&gt;</span><br><span class="line">          密码：&lt;%=password %&gt;&lt;br&gt;</span><br></pre></td></tr></table></figure>
+
+<p>user.jsp中的业务逻辑代码（只需获取cookies值，即接收用户信息）</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    	request.setCharacterEncoding(<span class="string">"utf-8"</span>);	</span><br><span class="line">    </span><br><span class="line">    	String username = <span class="string">""</span>; <span class="comment">//用户名</span></span><br><span class="line">    	String password = <span class="string">""</span>; <span class="comment">//密码</span></span><br><span class="line">    	</span><br><span class="line">    	Cookie[] cookies = request.getCookies();</span><br><span class="line">    	<span class="comment">//保存有cookie对象</span></span><br><span class="line">    	<span class="keyword">if</span>(cookies != <span class="keyword">null</span> &amp;&amp; cookies.length &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    		<span class="keyword">for</span>(Cookie c: cookies)&#123;</span><br><span class="line">    			<span class="keyword">if</span>(c.getName().equals(<span class="string">"username"</span>))&#123;</span><br><span class="line">    				username = URLDecoder.decode(c.getValue(),<span class="string">"utf-8"</span>);</span><br><span class="line">    			&#125;</span><br><span class="line">    			<span class="keyword">if</span>(c.getName().equals(<span class="string">"password"</span>))&#123;</span><br><span class="line">    				password = URLDecoder.decode(c.getValue(),<span class="string">"utf-8"</span>);</span><br><span class="line">    			&#125;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    %&gt;</span><br><span class="line">          用户名：&lt;%=username %&gt;&lt;br&gt;</span><br><span class="line">          密码：&lt;%=password %&gt;&lt;br&gt;</span><br></pre></td></tr></table></figure>
+
+<p> login.jsp业务逻辑（判断是否保存过用户信息）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">	request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">	</span><br><span class="line">    	String username = <span class="string">""</span>; <span class="comment">//用户名</span></span><br><span class="line">    	String password = <span class="string">""</span>; <span class="comment">//密码</span></span><br><span class="line">    	</span><br><span class="line">    	Cookie[] cookies = request.getCookies();</span><br><span class="line">    	<span class="comment">//保存有cookie对象</span></span><br><span class="line">    	<span class="keyword">if</span>(cookies != <span class="keyword">null</span> &amp;&amp; cookies.length &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    		<span class="keyword">for</span>(Cookie c: cookies)&#123;</span><br><span class="line">    			<span class="keyword">if</span>(c.getName().equals(<span class="string">"username"</span>))&#123;</span><br><span class="line">    				username = URLDecoder.decode(c.getValue(),<span class="string">"utf-8"</span>);</span><br><span class="line">    			&#125;</span><br><span class="line">    			<span class="keyword">if</span>(c.getName().equals(<span class="string">"password"</span>))&#123;</span><br><span class="line">    				password = URLDecoder.decode(c.getValue(),<span class="string">"utf-8"</span>);</span><br><span class="line">    			&#125;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    %&gt;</span><br><span class="line"></span><br><span class="line">&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;UserName:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type="text"  name="username" value="&lt;%=username %&gt;"/&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td&gt;Password:&lt;/td&gt;</span><br><span class="line">				&lt;td&gt;&lt;input type="password" name="password"/ value="&lt;%=password %&gt;"&gt;&lt;/td&gt;</span><br><span class="line">			&lt;/tr&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/04/认识JSP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1398,7 +1548,7 @@ public void run() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
