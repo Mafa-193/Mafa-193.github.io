@@ -229,6 +229,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/04/怎样用Eclipse连接数据库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/04/怎样用Eclipse连接数据库/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-04T18:25:12+08:00">
+                2019-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>第一步：</p>
+<p>要连接数据库必须要下载数据库驱动，可以取网上下载对应版本的数据库驱动</p>
+<p><img src="https://i.loli.net/2019/11/04/HqglTFOvfNBj9W1.png" alt="blob"></p>
+<p>第二步：如图再eclipse中建立一个项目.new—folder—文件名</p>
+<p><img src="https://i.loli.net/2019/11/04/QTe8lSkRoGUEVHt.png" alt="blob"></p>
+<p>第三步：把数据库驱动复制到这个jdbc文件下</p>
+<p><img src="https://i.loli.net/2019/11/04/XPCSYKyn3LHaV2m.png" alt="blob"></p>
+<p>第四步 右键这个驱动 build path—add build path</p>
+<p><img src="https://i.loli.net/2019/11/04/wx91JNbH58XoE7K.png" alt="blob"></p>
+<p>第五步写一个用于连接数据库的java类</p>
+<p>package com.lph.bookmanager.util;<br>import java.sql.Connection;<br>import java.sql.DriverManager;<br>/**</p>
+<ul>
+<li><p>数据库连接工具类</p>
+</li>
+<li><p>@author Administrator</p>
+</li>
+<li></li>
+<li><p>/<br>public class DbUtil {<br>  //连接数据库要使用的量<br>  private String dbUrl=”jdbc:mysql://localhost:3306/db_book”;<br>  private String name=”root”;//写上登陆数据库系统的用户名（安装数据库时候设置的用户名）<br>  private String password=”123456”;//写上登陆数据库系统的密码<br>  private String jdbcName=”com.mysql.jdbc.Driver”;//数据库驱动<br>  //公共的连接数据库方法<br>  public Connection getCon()throws Exception{</p>
+<pre><code>Class.forName(jdbcName);
+Connection con = DriverManager.getConnection(dbUrl,name,password);
+return con;</code></pre><p>  }<br>  //关闭数据库<br>  public void closeCon(Connection con)throws Exception{</p>
+<pre><code>if(con!=null)
+{
+    con.close();
+}</code></pre><p>  }<br>  //测试连接成功<br>  public static void main(String[] args) {</p>
+<pre><code>DbUtil db = new DbUtil();
+try {
+    db.getCon();
+    System.out.println(&quot;连接成功&quot;);
+} catch (Exception e) {
+
+    e.printStackTrace();
+
+                System.out.println(&quot;连接成功&quot;);
+
+}</code></pre><p>  }<br>}</p>
+</li>
+</ul>
+<p>打印结果</p>
+<p><img src="https://i.loli.net/2019/11/04/OEwadSjYG5ptgRc.png" alt="blob"></p>
+<p>说明连接成功。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/Tomcat的安装和配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1005,7 +1165,7 @@ public void run() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
