@@ -229,6 +229,152 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/29/JSP-request内置对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/29/JSP-request内置对象/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-29T20:38:14+08:00">
+                2019-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="（1）、我们在使用JSP内置对象时，不需要先定义这些对象，直接使用即可"><a href="#（1）、我们在使用JSP内置对象时，不需要先定义这些对象，直接使用即可" class="headerlink" title="（1）、我们在使用JSP内置对象时，不需要先定义这些对象，直接使用即可"></a>（1）、我们在使用JSP内置对象时，不需要先定义这些对象，直接使用即可</h5><h5 id="（2）、在JSP中一共预先定义了9个这样的对象，分别是-request，response，session，application，out，pageContext，config，page，exception"><a href="#（2）、在JSP中一共预先定义了9个这样的对象，分别是-request，response，session，application，out，pageContext，config，page，exception" class="headerlink" title="（2）、在JSP中一共预先定义了9个这样的对象，分别是 request，response，session，application，out，pageContext，config，page，exception"></a>（2）、在JSP中一共预先定义了9个这样的对象，分别是 request，response，session，application，out，pageContext，config，page，exception</h5><h4 id="request对象"><a href="#request对象" class="headerlink" title="request对象"></a>request对象</h4><h5 id="request封装了由客户端生成的http请求的所有细节，主要包括http头信息，系统信息，请求方式和请求参数等"><a href="#request封装了由客户端生成的http请求的所有细节，主要包括http头信息，系统信息，请求方式和请求参数等" class="headerlink" title="request封装了由客户端生成的http请求的所有细节，主要包括http头信息，系统信息，请求方式和请求参数等"></a>request封装了由客户端生成的http请求的所有细节，主要包括http头信息，系统信息，请求方式和请求参数等</h5><h4 id="访问请求参数"><a href="#访问请求参数" class="headerlink" title="访问请求参数"></a><strong>访问请求参数</strong></h4><h5 id="当通过超链接的形式发送请求时，可以为该请求传递参数，这可以通过在超链接后面加上”-”来实现"><a href="#当通过超链接的形式发送请求时，可以为该请求传递参数，这可以通过在超链接后面加上”-”来实现" class="headerlink" title="当通过超链接的形式发送请求时，可以为该请求传递参数，这可以通过在超链接后面加上”?”来实现"></a>当通过超链接的形式发送请求时，可以为该请求传递参数，这可以通过在超链接后面加上”?”来实现</h5><h5 id="eg："><a href="#eg：" class="headerlink" title="eg："></a>eg：</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href="delete.jsp?id=1"&gt;删除&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="在作用域中管理属性"><a href="#在作用域中管理属性" class="headerlink" title="在作用域中管理属性"></a><strong>在作用域中管理属性</strong></h5><h5 id="在进行请求转发时，需要把一些数据传递到转发后的页面进行处理，这时就需要request对象的setAttribute-方法将数据保存到request范围内的变量中"><a href="#在进行请求转发时，需要把一些数据传递到转发后的页面进行处理，这时就需要request对象的setAttribute-方法将数据保存到request范围内的变量中" class="headerlink" title="在进行请求转发时，需要把一些数据传递到转发后的页面进行处理，这时就需要request对象的setAttribute()方法将数据保存到request范围内的变量中"></a>在进行请求转发时，需要把一些数据传递到转发后的页面进行处理，这时就需要request对象的setAttribute()方法将数据保存到request范围内的变量中</h5><h5 id="语法格式如下："><a href="#语法格式如下：" class="headerlink" title="语法格式如下："></a>语法格式如下：</h5><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(String name, Object object);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>name：变量名，在转发后的页面取数据时，就是通过这个变量名来获取数据的</p>
+</li>
+<li><p>object：用于指定需要在request范围内传递的数据，为Object对象</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getAttribute(String name);</span><br></pre></td></tr></table></figure>
+
+<h5 id="获取cookie"><a href="#获取cookie" class="headerlink" title="获取cookie"></a><strong>获取cookie</strong></h5><p>cookie：小段的文本信息，在网络服务器上生成，并发送给浏览器。通过使用cookie可以标识用户身份，记录用户名和密码，跟踪重复用户等。浏览器将cookie以key/value的形式保存到客户机的某个指定目录中</p>
+<p>通过cookie的getCookies()方法可以获取到所有的cookie对象的集合，通过cookie对象的getName()方法可以获取到指定名称的cookie，通过getValue()方法可以获取到cookie的值，另外，将一个cookie对象发送到客户端，使用response对象的addCookie()方法</p>
+<h5 id="解决中文乱码"><a href="#解决中文乱码" class="headerlink" title="解决中文乱码"></a><strong>解决中文乱码</strong></h5><p>request请求参数的文字编码可能和页面的不一致，故导致乱码</p>
+<h5 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h5><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%=<span class="keyword">new</span> String(request.getParameter(<span class="string">"name"</span>).getBytes(<span class="string">"请求编码"</span>), <span class="string">"页面编码"</span>)%&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般为以下语句</span></span><br><span class="line">&lt;%=<span class="keyword">new</span> String(request.getParameter(<span class="string">"name"</span>).getBytes(<span class="string">"ISO-8859-1"</span>), <span class="string">"utf-8"</span>)%&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="获取客户端信息"><a href="#获取客户端信息" class="headerlink" title="获取客户端信息"></a>获取客户端信息</h5><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">getHeader(String name)：获取HTTP协议定义的头文件信息</span><br><span class="line">getHeaders(String name)：返回指定名称的request Header的所有值，其结果是一个枚举的实例</span><br><span class="line">getHeadersNames()：返回所有request Header的名字，结果是一个枚举的实例</span><br><span class="line">getMethod()：获得客户端向服务器传送数据的方法</span><br><span class="line">getProtocol()：获得客户端向服务器传送数据所依据的协议名称</span><br><span class="line">getRequestURI()：获得发出请求字符串的客户端地址，不包括主机，端口等</span><br><span class="line">getRequestURL()：获得发出请求字符串的客户端地址</span><br><span class="line">getRealPath()：返回当前请求文件的绝对路径 注：不建议使用</span><br><span class="line">getRemoteAddr()：获取客户端的IP地址</span><br><span class="line">getRemoteHost()：获取客户端的主机名</span><br><span class="line">getServerName()：获取服务器的名称</span><br><span class="line">getServletPath()：获取客户端所请求的脚本文件的文件路径</span><br><span class="line">getServerPort()：获取服务器的端口号</span><br></pre></td></tr></table></figure>
+
+<p>eg:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;获取客户端信息&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">客户端提交信息的方式：&lt;%=request.getMethod()%&gt;&lt;br/&gt;</span><br><span class="line">使用的协议：&lt;%=request.getProtocol()%&gt;&lt;br/&gt;</span><br><span class="line">获取发出请求字符串的客户端地址：&lt;%=request.getRequestURI()%&gt;&lt;br/&gt;</span><br><span class="line">获取发出请求字符串的客户端地址：&lt;%=request.getRequestURL()%&gt;&lt;br/&gt;</span><br><span class="line">获取提交数据的客户端IP地址：&lt;%=request.getRemoteAddr()%&gt;&lt;br/&gt;</span><br><span class="line">获取服务器端口号：&lt;%=request.getServerPort()%&gt;&lt;br/&gt;</span><br><span class="line">获取服务器名称：&lt;%=request.getServerName()%&gt;&lt;br/&gt;</span><br><span class="line">获取客户端主机名：&lt;%=request.getRemoteHost()%&gt;&lt;br/&gt;</span><br><span class="line">获取客户端所请求的脚本文件的文件路径：&lt;%=request.getServletPath()%&gt;&lt;br/&gt;</span><br><span class="line">获得Http协议定义的文件头信息Host的值：&lt;%=request.getHeader(<span class="string">"host"</span>)%&gt;&lt;br/&gt;</span><br><span class="line">获得Http协议定义的文件头信息User-Agent的值：&lt;%=request.getHeader(<span class="string">"user-agent"</span>)%&gt;&lt;br/&gt;</span><br><span class="line">获得Http协议定义的文件头信息accept-language的值：&lt;%=request.getHeader(<span class="string">"accept-language"</span>)%&gt;&lt;br/&gt;</span><br><span class="line">获得请求文件的绝对路径：&lt;%=request.getRealPath(<span class="string">"requestGetMethod.jsp"</span>)%&gt;&lt;br/&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h5 id="显示国际化信息"><a href="#显示国际化信息" class="headerlink" title="显示国际化信息"></a><strong>显示国际化信息</strong></h5><p>浏览器可以通过accept-language的HTTP报头向Web服务器指明它所使用的本地语言<br>request对象中的getLocale()和getLocales()方法允许JSP开发人员获取这一信息，获取的信息属于java.util.Local类型<br>java.util.Locale类型的对象封装了一个国家和国家所使用的一种语言，通过这一信息，JSP开发人员就可以使用语言所特有的信息做出响应</p>
+<h5 id="eg：如果所在区域为中国，将显示“你好！”，而如果在英国，则显示“Hello-”"><a href="#eg：如果所在区域为中国，将显示“你好！”，而如果在英国，则显示“Hello-”" class="headerlink" title="eg：如果所在区域为中国，将显示“你好！”，而如果在英国，则显示“Hello!”"></a>eg：如果所在区域为中国，将显示“你好！”，而如果在英国，则显示“Hello!”</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;%@ page <span class="keyword">import</span>=<span class="string">"java.util.Locale"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;显示国际化信息&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    Locale locale = request.getLocale();</span><br><span class="line">    String str = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(locale.equals(Locale.US))&#123;</span><br><span class="line">        str = <span class="string">"Hello!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(locale.equals(Locale.CHINA))&#123;</span><br><span class="line">        str = <span class="string">"你好！"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;%=str%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/29/JSP内置对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1630,141 +1776,13 @@ public void run() {
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/11/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/11/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-11T13:14:09+08:00">
-                2019-10-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1808,7 +1826,7 @@ public void run() {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
